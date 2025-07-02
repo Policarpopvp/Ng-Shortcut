@@ -1,5 +1,5 @@
 {
-  "name": "ng-shortcut",
+  "name": "ng-shortcut-cli",
   "version": "1.0.0",
   "main": "ng-st.js",
   "bin": {
