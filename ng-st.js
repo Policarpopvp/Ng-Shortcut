@@ -1,20 +1,50 @@
 #!/usr/bin/env node
 const { exec } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
-// Mapeamento dos aliases para caminhos completos
-const aliases = {
+// Caminho do arquivo de configuração (vai criar no diretório onde o usuário rodar o comando)
+const configFilePath = path.resolve(process.cwd(), '.ng-shortcut.json');
+
+// Aliases padrão caso não tenha arquivo .ng-shortcut.json
+const defaultAliases = {
   'perfil': 'modulos/usuario/perfil',
   'config': 'modulos/usuario/perfil/configuracoes',
-  'home': 'modulos/home',
-  // adicione mais conforme sua estrutura ou apague os ja existentes se desnecessário
+  'home': 'modulos/home'
 };
 
-// Recebe o caminho curto via argumentos
-const arg = process.argv[2];
+const args = process.argv.slice(2);
 
-if (!arg) {
-  console.error('Use: node ng-shortcut.js <alias/nome-do-componente>');
+if (args.length === 0) {
+  console.error('Use: ng-shortcut <alias/nome-do-componente> ou ng-shortcut init');
   process.exit(1);
+}
+
+if (args[0] === 'init') {
+  // Cria arquivo .ng-shortcut.json com aliases padrão, se não existir
+  if (fs.existsSync(configFilePath)) {
+    console.log('Arquivo .ng-shortcut.json já existe neste diretório.');
+  } else {
+    fs.writeFileSync(configFilePath, JSON.stringify(defaultAliases, null, 2));
+    console.log('Arquivo .ng-shortcut.json criado com aliases padrão.');
+  }
+  process.exit(0);
+}
+
+// Se não for init, pega o argumento que seria o caminho curto
+const arg = args[0];
+
+// Lê aliases do arquivo .ng-shortcut.json se existir, senão usa o padrão
+let aliases;
+if (fs.existsSync(configFilePath)) {
+  try {
+    aliases = JSON.parse(fs.readFileSync(configFilePath, 'utf-8'));
+  } catch (e) {
+    console.error('Erro ao ler o arquivo .ng-shortcut.json:', e.message);
+    process.exit(1);
+  }
+} else {
+  aliases = defaultAliases;
 }
 
 // Divide o argumento em partes (ex: 'perfil/meu-componente')
@@ -48,4 +78,5 @@ if (aliases[prefix]) {
 } else {
   console.error(`Alias '${prefix}' não encontrado.`);
   console.log('Aliases disponíveis:', Object.keys(aliases).join(', '));
+  process.exit(1);
 }
