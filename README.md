@@ -1,33 +1,32 @@
-# ng-st
+# 🔀 ng-shortcut-cli
 
-> **ng-st** é uma CLI simples e eficiente para encurtar caminhos na criação de componentes Angular.  
-> Ideal para projetos com estruturas complexas e profundas, onde a navegação por caminhos longos pode ser um incômodo.
+> **ng-shortcut-cli** é uma ferramenta simples e eficiente para encurtar caminhos na criação de componentes Angular.  
+> Ideal para projetos com estruturas complexas e profundas, onde a navegação por pastas longas pode ser um incômodo diário.
 
 ---
 
 ## 🚀 Visão Geral
 
-Criar componentes no Angular pode demandar digitar caminhos extensos e repetitivos, especialmente em projetos grandes com múltiplos níveis de pastas.  
+Criar componentes no Angular pode exigir a digitação de caminhos extensos e repetitivos, principalmente em projetos grandes e modulares.
 
-**ng-st** resolve isso ao permitir que você utilize **aliases** — atalhos que representam caminhos completos — para gerar componentes com muito mais rapidez e praticidade.
+**ng-shortcut-cli** resolve esse problema ao permitir que você utilize **aliases (atalhos de caminho)** para representar pastas inteiras, tornando a criação de componentes muito mais rápida e produtiva.
 
 ---
 
 ## 🎯 Funcionalidades
 
-- Mapear aliases para caminhos completos no seu projeto Angular
-- Gerar componentes usando o Angular CLI com um comando simplificado
-- Facilitar o desenvolvimento e aumentar a produtividade
-- Fácil de configurar e extender conforme a estrutura do seu projeto
+- ✅ Mapeamento de aliases para caminhos completos no Angular
+- ⚡ Geração de componentes com Angular CLI usando atalhos
+- 🔧 Fácil personalização e extensão da estrutura
+- 💡 Aumenta a produtividade e reduz digitação desnecessária
 
 ---
 
 ## 💻 Como Usar
 
-1. Clone ou baixe o repositório.
-2. Garanta que você tenha o [Node.js](https://nodejs.org/) e o [Angular CLI](https://angular.io/cli) instalados globalmente.
-3. Navegue até a pasta do projeto Angular onde quer criar o componente.
-4. Execute o comando passando o alias e o nome do componente:
+### 1. Instalação
+
+Instale globalmente via npm:
 
 ```bash
-node ng-st.js <alias>/<nome-do-componente>
+npm install -g ng-shortcut-cli
