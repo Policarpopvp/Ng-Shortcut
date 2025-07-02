@@ -1,12 +1,15 @@
 {
-  "name": "ng-st",
+  "name": "ng-shortcut",
   "version": "1.0.0",
   "main": "ng-st.js",
+  "bin": {
+    "ng-shortcut": "./ng-st.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["angular", "cli", "shortcuts"],
-  "author": "João Policarpo",
+  "author": "joaopolicarpo",
   "license": "MIT",
   "description": "CLI para encurtar caminhos no Angular CLI"
 }
