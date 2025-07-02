@@ -1,12 +1,12 @@
 {
   "name": "ng-st",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "ng-st.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "keywords": ["angular", "cli", "shortcuts"],
+  "author": "João Policarpo",
+  "license": "MIT",
+  "description": "CLI para encurtar caminhos no Angular CLI"
 }
